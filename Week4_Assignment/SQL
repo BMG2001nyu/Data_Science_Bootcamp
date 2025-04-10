@@ -1,0 +1,63 @@
+Query 1 
+
+SELECT COUNT(*) AS total_completed_orders
+FROM orders
+WHERE order_status = 'Completed'
+  AND order_date = '2023-03-18';
+
+
+
+
+Query 2 
+
+SELECT COUNT(*) AS total_orders_john_doe
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_status = 'Completed'
+  AND o.order_date = '2023-03-18'
+  AND c.first_name = 'John'
+  AND c.last_name = 'Doe';
+
+
+
+
+Query 3 
+
+SELECT COUNT(DISTINCT customer_id) AS total_customers,
+       AVG(customer_total) AS avg_amount_spent_per_customer
+FROM (
+    SELECT customer_id, SUM(total_amount) AS customer_total
+    FROM orders
+    WHERE order_date BETWEEN '2023-01-01' AND '2023-01-31'
+    GROUP BY customer_id
+) AS customer_orders;
+
+
+
+
+Query 4 
+
+SELECT department,
+       SUM(total_amount) AS total_revenue
+FROM orders
+WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'
+GROUP BY department
+HAVING SUM(total_amount) < 600;
+
+
+
+
+Query 5 
+
+SELECT MAX(total_amount) AS highest_order_revenue,
+       MIN(total_amount) AS lowest_order_revenue
+FROM orders;
+
+
+
+
+Query 6 
+
+SELECT *
+FROM orders
+WHERE total_amount = (SELECT MAX(total_amount) FROM orders);

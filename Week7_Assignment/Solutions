@@ -1,0 +1,29 @@
+1. Assessing Statistical Significance of an Insight
+A null hypothesis, which presupposes no effect or difference, and an alternative hypothesis, which reflects the insight you wish to test, are stated explicitly first.  Then, depending on your data type and design, you choose a suitable statistical test, like a chi-square test for categorical data or a t-test for comparing means.  The test statistic and associated p-value, which show the likelihood of finding results at least as extreme as yours if the null hypothesis were correct, are then calculated.  Lastly, you check test assumptions, report an effect size to determine practical importance, and compare the p-value to your predefined significance level (usually 0.05) to determine whether to reject the null hypothesis.
+
+
+2. Central Limit Theorem
+As the sample size n increases, the distribution of the sample mean will resemble a normal distribution 𝑁(𝜇,𝜎 2/𝑛) N(μ,σ 2 /n), according to the Central Limit Theorem, given a population with finite mean μ and variance σ². If n is large enough (usually n≥30 is used as a rule of thumb), this amazing result holds true regardless of the original population's shape. The CLT allows us to use normal-based inference techniques, such as confidence intervals and z-tests, on sample means even in cases where the underlying data are not normally distributed. By defending these approximations for large samples, the CLT serves as the foundation for a large portion of statistical inference in practice.
+
+
+3. Statistical Power
+The definition of statistical power is 1 − 𝛽 1 − β, where β is the likelihood of making a Type II error (not detecting a true effect).  Based on variables like the true effect size, sample size, selected significance level (α), and data variability, higher power indicates a higher likelihood of finding an effect that already exists.  Setting a very strict α (such as 0.01) will lower power, whereas increasing your sample size or concentrating on a larger expected difference will increase it.  Therefore, power analysis is essential during the design stage to guarantee that your study can accurately identify the effects you are interested in.
+
+
+4. Controlling for Biases
+Blinding can be used to keep participants or observers from being swayed by treatment knowledge, and randomizing assignment to treatment groups can ensure that confounding factors are distributed evenly by chance.  To guarantee balance across comparison groups, you can also stratify your sample based on important attributes like age or gender.  You can use propensity score techniques to match or weight observations according to their likelihood of receiving a treatment, or you can use regression models to account for known confounders by including them as covariates.  Lastly, performing sensitivity analyses enables you to evaluate the potential impact of unmeasured biases on your findings.
+
+
+5. Confounding Variables
+A confounding variable is one that affects both the dependent variable (outcome) and the independent variable (treatment or exposure), possibly leading to an erroneous correlation between them.  If you only consider ice cream sales and drowning rates, for example, they both rise during warmer months, so temperature becomes a confounding factor.  You can use randomization or stratification to balance the distribution of confounders in your research, or you can use multivariate adjustment, matching strategies, or stratified analyses to account for them in your statistical models.
+
+
+6. A/B Testing
+In order to compare the performance of users or units on a predetermined success metric, like click-through rate or conversion rate, A/B testing is a controlled experiment in which users or units are randomly assigned to one of two variants—A (the control) or B (the treatment).  To prevent time-related biases, you run both variants simultaneously after determining the sample size needed to obtain sufficient power for detecting the expected difference.  To ascertain whether any observed difference is statistically significant, you use a suitable statistical test (such as a chi-square test or two-sample t-test) after gathering data.  When testing more than two variants, proper A/B testing also includes accounting for multiple comparisons and avoiding premature peeking at results.
+
+
+7. Confidence Intervals
+ A confidence interval is a range of likely values for an unknown parameter, like a population mean or proportion, that is designed to contain the true parameter 100(1−𝛼)% of the time under repeated sampling.  The 100 (1 − 𝛼)% CI for a mean with known variance is computed as 𝑥 ˉ± 𝑧 1 − 𝛼/2.
+ 𝜎𝑛x ̉ ±z 1−α/2
+ n
+ If the variance is estimated, you substitute the proper t-distribution value for the normal quantile.  Greater variability in the data or smaller sample sizes may be the cause of wider intervals, which signify increased uncertainty.  For instance, interpreting a 95% CI indicates that you have 95% confidence that the calculated range contains the true parameter value.
